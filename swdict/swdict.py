@@ -3,7 +3,7 @@ SignWriting Dictionary Class
 '''
 import sqlite3
 import struct
-import pickle
+import pickle5 as pickle
 import time
 import os
 from dataclasses import dataclass
