@@ -16,7 +16,8 @@ data_dir = 'data'
 
 @dataclass(frozen=True)
 class Symbol:
-    """ISWA symbol in a sign
+    """
+    ISWA symbol in a sign
     """
     category: int   # category of ISWA
     id: int     # symbol id
@@ -26,7 +27,8 @@ class Symbol:
 
 @dataclass (frozen=True)
 class Sign:
-    """Sign in swdic.db
+    """
+    Sign in swdic.db
     """
     id: int     # sign id in dictionary
     gloss: str
@@ -88,9 +90,12 @@ def sss_category(sss):
 
 
 def sss2id(sss):
-    """ID and category of SSS
-    sss: string or packed sss
-    returns: ID and category
+    """
+    Convert sss into ID and category
+    Argument:
+        sss: string or packed sss
+    Returns:
+        ID and category
     """
     global sss_dict01
     global sss_dict45
@@ -116,7 +121,12 @@ def sss2id(sss):
 
 
 def id2sss(id: int, category: int):
-    '''convert id and category into SSS
+    '''
+    Convert id and category into SSS
+    Arguments:
+        ID and category number
+    Returns:
+        packed SSS
     '''
     global sss_dict01
     global sss_dict45
@@ -143,7 +153,9 @@ def id2sss(id: int, category: int):
 
 
 def load_sss_dicts():
-    ''' SSSからIDを得るための辞書をロードする '''
+    """
+    Load SSS dictionary (SSS -> idx)
+    """
     global sss_dict01
     global sss_dict45
     global sss_dict23
@@ -181,8 +193,10 @@ def load_sss_dicts():
 
 
 def swml2sign(text: str):
-    """Generate sign from swml string
-    text: swml string
+    """
+    Generate sign from swml string
+    Argument
+        text: swml string
     """
     root = ET.fromstring(text)
     child = root.find('sign')
@@ -223,8 +237,9 @@ class SwDict:
 
     def get_signid_vocab(self):
         """
-        Get signid vocabulari
-        Returns: signid-serial number dictionary for generate one-hot vector
+        Get signid vocabulary
+        Returns
+            dictionary (signid -> index) for generating one-hot vector
         """
         if len(self.signid_vocab) == 0:
             vocab_idx = 0
