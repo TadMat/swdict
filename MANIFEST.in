@@ -1,0 +1,2 @@
+include swdict/data/*.pkl
+include swdict/data/swdic.db
